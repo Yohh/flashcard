@@ -22,7 +22,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 40vh;
+    height: 50vh;
     width: 10vw;
     margin: 2vh;
     padding: 2vh;
@@ -33,6 +33,7 @@ section {
 
 h1 {
     text-align: center;
+    height: 10vh;
 }
 
 .question {

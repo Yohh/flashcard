@@ -51,92 +51,68 @@ questions.forEach((elem, index) => {
   const question = document.createElement("h1");
   section.appendChild(question);
   question.innerHTML = `${elem.question}`;
+  const firstQuestion = document.createElement("div");
+  const answer1 = document.createElement("label");
+  const input1 = document.createElement("input");
+  const secondQuestion = document.createElement("div");
+  const answer2 = document.createElement("label");
+  const input2 = document.createElement("input");
   let random = Math.ceil(Math.random() * 2);
   if (random === 1) {
-    const firstQuestion = document.createElement("div");
     firstQuestion.classList.add("question");
     section.appendChild(firstQuestion);
-    const answer1 = document.createElement("label");
     answer1.innerHTML = `${elem.answer1}`;
     answer1.htmlFor = `input1.${index + 1}`;
     firstQuestion.appendChild(answer1);
-    const input1 = document.createElement("input");
     input1.type = "radio";
     input1.id = `input1.${index + 1}`;
     input1.name = `answer.${index + 1}`;
     firstQuestion.appendChild(input1);
-    const secondQuestion = document.createElement("div");
     secondQuestion.classList.add("question");
     section.appendChild(secondQuestion);
-    const answer2 = document.createElement("label");
     answer2.htmlFor = `input2.${index + 1}`;
     answer2.innerHTML = `${elem.answer2}`;
     secondQuestion.appendChild(answer2);
-    const input2 = document.createElement("input");
     input2.type = "radio";
     input2.id = `input2.${index + 1}`;
     input2.name = `answer.${index + 1}`;
     secondQuestion.appendChild(input2);
-    const flip = document.createElement("input");
-    flip.type = "button";
-    flip.value = "flip";
-    section.appendChild(flip);
-    flip.onclick = () => {
-      section.innerHTML = "";
-      const answer = document.createElement("p");
-      answer.classList.add("answer");
-      section.appendChild(answer);
-      if (input2.checked) {
-        answer.innerHTML = "well done!";
-        i++;
-        console.log(i);
-      } else {
-        answer.innerHTML = "to bad!";
-      }
-      h2.innerHTML = `${i} / 6 `;
-    };
   } else {
-    const secondQuestion = document.createElement("div");
     secondQuestion.classList.add("question");
     section.appendChild(secondQuestion);
-    const answer2 = document.createElement("label");
     answer2.htmlFor = `input2.${index + 1}`;
     answer2.innerHTML = `${elem.answer2}`;
     secondQuestion.appendChild(answer2);
-    const input2 = document.createElement("input");
     input2.type = "radio";
     input2.id = `input2.${index + 1}`;
     input2.name = `answer.${index + 1}`;
     secondQuestion.appendChild(input2);
-    const firstQuestion = document.createElement("div");
     firstQuestion.classList.add("question");
     section.appendChild(firstQuestion);
-    const answer1 = document.createElement("label");
     answer1.innerHTML = `${elem.answer1}`;
     answer1.htmlFor = `input1.${index + 1}`;
     firstQuestion.appendChild(answer1);
-    const input1 = document.createElement("input");
     input1.type = "radio";
     input1.id = `input1.${index + 1}`;
     input1.name = `answer.${index + 1}`;
     firstQuestion.appendChild(input1);
-    const flip = document.createElement("input");
-    flip.type = "button";
-    flip.value = "flip";
-    section.appendChild(flip);
-    flip.onclick = () => {
-      section.innerHTML = "";
-      const answer = document.createElement("p");
-      answer.classList.add("answer");
-      section.appendChild(answer);
-      if (input2.checked) {
-        answer.innerHTML = "well done!";
-        i++;
-        console.log(i);
-      } else {
-        answer.innerHTML = "to bad!";
-      }
-      h2.innerHTML = `${i} / 6 `;
-    };
   }
+  const flip = document.createElement("input");
+  flip.type = "button";
+  flip.value = "flip";
+  section.appendChild(flip);
+  flip.onclick = () => {
+    section.innerHTML = "";
+    const answer = document.createElement("p");
+    answer.classList.add("answer");
+    section.appendChild(answer);
+    if (input2.checked) {
+      answer.innerHTML = "well done!";
+      i++;
+      console.log(i);
+    } else {
+      answer.innerHTML = "to bad!";
+    }
+    h2.innerHTML = `${i} / 6 `;
+  };
 });
